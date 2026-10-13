@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Arrow Live</title>
+    
+    <!-- WhatsApp Preview Meta Tags -->
+    <meta property="og:type" content="article">
+    <meta id="og-title" property="og:title" content="News Arrow Breaking News">
+    <meta id="og-desc" property="og:description" content="ताज़ा और निष्पक्ष समाचार पढ़ें">
+    <meta id="og-image" property="og:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div class="text-center p-6 bg-white rounded-lg shadow-md max-w-sm">
+        <h2 class="text-xl font-bold mb-2">खबर लोड हो रही है...</h2>
+        <p class="text-gray-500 text-sm">कृपया प्रतीक्षा करें</p>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const title = params.get('t') || '';
+        const img = params.get('i') || '';
+        const desc = params.get('d') || '';
+
+        if (title) document.title = title;
+        if (img) document.getElementById('og-image').setAttribute('content', decodeURIComponent(img));
+        if (title) document.getElementById('og-title').setAttribute('content', decodeURIComponent(title));
+        if (desc) document.getElementById('og-desc').setAttribute('content', decodeURIComponent(desc));
+
+        // User ko direct main portal par redirect karega
+        setTimeout(() => {
+            window.location.href = 'index.html';
+        }, 1200);
+    </script>
+</body>
+</html>
